@@ -28,9 +28,9 @@ var ReplyAsOriginalRecipient = {
     /* Get original recipient */
     originalHeader = this.getMessageHeaderFromURI(gMsgCompose.originalMsgURI);
     originalRecipient = originalHeader.mime2DecodedRecipients;
-    if (originalRecipient.indexOf(",") != -1 || originalRecipient.indexOf("+") == -1)
+    if (originalRecipient.indexOf(",") !== -1) {
       return;
-
+    }
     /* Adapted from mail/components/compose/content/MsgComposeCommands.js */
     var customizeMenuitem = document.getElementById("cmd_customizeFromAddress");
     customizeMenuitem.setAttribute("disabled", "true");
